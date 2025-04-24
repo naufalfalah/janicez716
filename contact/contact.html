@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>uravaluationdatas</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="hero">
+        <div class="hero-wrapper">
+          <h1>PROPERTY VALUATION CALCULATOR</h1>
+          <p>
+            The data is based on registered resale applications and is updated
+            daily. Use this calculator to determine how much you could
+            potentially sell your own property.
+          </p>
+        </div>
+      </div>
+      <div class="floating-icons">
+        <button title="Facebook">
+          <span class="icon-label">Facebook</span>
+          <i class="fab fa-facebook-f"></i>
+        </button>
+        <button title="Twitter">
+          <span class="icon-label">Twitter</span>
+          <i class="fab fa-twitter"></i>
+        </button>
+        <button title="Instagram">
+          <span class="icon-label">Instagram</span>
+          <i class="fab fa-instagram"></i>
+        </button>
+        <button title="LinkedIn">
+          <span class="icon-label">LinkedIn</span>
+          <i class="fab fa-linkedin-in"></i>
+        </button>
+      </div>
+    </header>
+
+    <div class="container">
+        <form>
+          <label for="name">My Name is: *</label>
+          <div class="input-row">
+            <div class="input-icon">
+              <i class="fas fa-user"></i>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter First Name..."
+                required
+              />
+            </div>
+
+            <div class="input-icon">
+              <i class="fas fa-phone"></i>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+65"
+                required
+              />
+            </div>
+          </div>
+
+          <label for="email">Email Address: *</label>
+          <div class="input-icon">
+            <i class="fas fa-envelope"></i>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter email address..."
+              required
+            />
+          </div>
+
+          <label for="consent" class="check-box-label">
+            <input
+              type="checkbox"
+              id="consent"
+              name="consent"
+              class="custom-input"
+              required
+            />
+            <p class="check-box-p">
+              I consent to the collection, use, and disclosure of my personal
+              data for purposes as set out in our
+              <a href="#" target="_blank">Privacy Policy</a>.
+            </p>
+          </label>
+
+          <button class="button" type="submit">
+            <i class="fas fa-paper-plane"></i>Get immediate result
+          </button>
+        </form>
+      </div>
+    <footer>&copy; 2025 barobill Developers. All rights reserved.</footer>
+  </body>
+</html>
