@@ -53,7 +53,7 @@ $(document).ready(function () {
             allowClear: true,
         })
 
-        $('#block').select2({
+        $('#hdb-block').select2({
             placeholder: 'Select block',
             allowClear: true,
         });

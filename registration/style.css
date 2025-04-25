@@ -5,7 +5,7 @@
   --primary-color-solid: #4C00FF;
   --secondary-color: linear-gradient(135deg, #0F041C, #530070);
   --hover-color: linear-gradient(135deg, #0F041C, #530070);
-  --active-color: linear-gradient(135deg,#530070, #0F041C);
+  --active-color: linear-gradient(135deg, #530070, #0F041C);
   --background-color: rgba(22, 5, 36, 1);
   --text-color: #222;
   --button-background: var(--primary-color-solid);
@@ -24,7 +24,7 @@
 }
 
 body {
-    background: var(--primary-color);
+  background: var(--primary-color);
 
   color: var(--text-color);
   overflow-x: hidden;
@@ -32,12 +32,9 @@ body {
 
 header {
   position: relative;
-  background: url("https://dev.barobill.co.kr/images/common/background/pattern-04.svg")
-      no-repeat calc(50% - 50rem) -5rem,
-    url(https://dev.barobill.co.kr/images/common/background/pattern-04-reverse.svg)
-      no-repeat calc(50% - 28rem) 14rem,
-    url(https://dev.barobill.co.kr/images/common/background/pattern-04.svg)
-      no-repeat calc(50% + 20rem) -15rem;
+  background: url("https://dev.barobill.co.kr/images/common/background/pattern-04.svg") no-repeat calc(50% - 50rem) -5rem,
+    url(https://dev.barobill.co.kr/images/common/background/pattern-04-reverse.svg) no-repeat calc(50% - 28rem) 14rem,
+    url(https://dev.barobill.co.kr/images/common/background/pattern-04.svg) no-repeat calc(50% + 20rem) -15rem;
   background-size: 25rem, 14rem, auto;
   color: var(--white);
   padding: 20px 40px;
@@ -54,9 +51,11 @@ a {
   align-items: center;
   justify-content: space-between;
 }
-.banner{
+
+.banner {
   background-repeat: no-repeat;
 }
+
 .logo {
   font-size: 18px;
   font-weight: bold;
@@ -106,9 +105,11 @@ nav a.active {
   display: flex;
   justify-content: center;
 }
+
 .flex-wrapper {
   width: 50%;
 }
+
 .hero-wrapper {
   max-width: 650px;
 }
@@ -160,7 +161,7 @@ nav a.active {
 }
 
 .floating-icons button:hover {
-/*  background-color: rgba(74, 0, 100, 0.9);*/
+  /*  background-color: rgba(74, 0, 100, 0.9);*/
   transform: scale(1.1);
 }
 
@@ -200,7 +201,7 @@ nav a.active {
 }
 
 .container {
-  
+
   max-width: 800px;
   background: white;
   margin: -140px auto 40px auto;
@@ -209,24 +210,27 @@ nav a.active {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 
 }
+
 .step-stab-main-wrapper {
-    position: relative;
-    z-index: 990;
+  position: relative;
+  z-index: 990;
 }
 
 .gradient {
-    background-color: #cb00dddb;
-    width: 258.44px;
-    height: 258.44px;
-    position: absolute;
-    left: -32%;
-    top: 23%;
-    border-radius: 99em;
-    filter: blur(242.97px);
+  background-color: #cb00dddb;
+  width: 258.44px;
+  height: 258.44px;
+  position: absolute;
+  left: -32%;
+  top: 23%;
+  border-radius: 99em;
+  filter: blur(242.97px);
 }
+
 .gradient.after {
-    left: 100%;
+  left: 100%;
 }
+
 /* .tabs {
   display: flex;
   justify-content: center;
@@ -234,9 +238,9 @@ nav a.active {
 } */
 
 .d-tabs-flex {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
 .tab {
@@ -252,7 +256,7 @@ nav a.active {
 }
 
 .tab:hover {
-  background: linear-gradient(135deg,#530070, #0F041C);
+  background: linear-gradient(135deg, #530070, #0F041C);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -323,7 +327,7 @@ form textarea {
   transition: color 0.3s;
 }
 
-.api-options input:hover + label,
+.api-options input:hover+label,
 .api-options label:hover {
   color: var(--secondary-color);
 }
@@ -479,6 +483,7 @@ select {
   body {
     font-size: 14px;
   }
+
   .container {
     padding: 20px;
     margin: -80px 20px 20px 20px;
@@ -497,9 +502,11 @@ select {
     flex-direction: column;
     gap: 5px;
   }
+
   .hero {
     padding: 50px 20px 100px;
   }
+
   .tab {
     width: 100%;
     padding: 12px;
@@ -510,10 +517,12 @@ select {
     top: 0;
     padding: 10px;
   }
+
   .floating-icons button {
     width: 30px;
     height: 30px;
   }
+
   .hero h1 {
     font-size: 22px;
   }
@@ -538,71 +547,83 @@ select {
     padding: 15px;
   }
 }
+
 @media (min-width: 320px) and (max-width: 480px) {
   .floating-icons button i {
     font-size: 14px;
   }
+
   div#tab-condo {
     margin-top: 10px;
   }
 }
+
 /* popup */
 #popup-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); */
 }
+
 .popup {
-    display: flex
-;
-    align-items: center;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease;
-    max-width: 300px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+  max-width: 300px;
 }
+
 .user-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--primary-color);
-    display: flex
-;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px 0px 0px 8px;
+  width: 60px;
+  height: 60px;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px 0px 0px 8px;
 }
+
 .popup-content {
-    font-size: 12px;
-    padding: 10px;
-    line-height: 1.4;
-    color: #333;
-    flex: 1;
+  font-size: 12px;
+  padding: 10px;
+  line-height: 1.4;
+  color: #333;
+  flex: 1;
 }
+
 .user-icon img {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
+
 @media (min-width: 320px) and (max-width: 480px) {
-  
-  .main-flex-wrapper{
+  .main-flex-wrapper {
     display: flex;
     flex-direction: column !important;
     gap: 10px;
   }
+
   .flex-wrapper {
     width: 100%;
+  }
+
+  .gradient.before {
+    display: none;
+  }
+
+  .gradient.after {
+    display: none;
+  }
+
+  footer {
+    padding: 20px 40px 100px;
+  }
 }
-.gradient.before{
-  display: none;
-}
-.gradient.after{
-  display: none;
-}
-footer{
-  padding: 20px 40px 100px;
-}
-  
+
+.error-message {
+  color: red !important;
 }
