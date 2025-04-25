@@ -32,36 +32,59 @@
                 <div class="main-content-wrapper">
                   <div class="row">
                     <div class="col-lg-12 cols-md-12 cols-sm-12">
+                      <div class="hdb-val-card">
+                        <h3 class="hdb-val-title"><strong>FREE Home Valuation Report</strong></h3>
+                        <div class="hdb-val-content">
+                            <p>
+                            Expect a call from us soon with a complimentary consultation for <span id="full-address-result"><?= json_encode($_GET['full_address'] ?? '') ?></span>. Get a clear picture of your HDB unit <span id="unit-result"><?= json_encode($_GET['unit'] ?? '') ?></span> selling price with no obligations.
+                            </p>
+                            <ul>
+                              <li>Recent rentals nearby</li>
+                              <li>Highest transactions</li>
+                              <li>Last 3 months report</li>
+                              <li>Potential selling price</li>
+                              <li>X-Value estimate</li>
+                              <li>Nearby HDB comparison</li>
+                          </ul>
+                          <p>
+                              Get market trends analysis to help you plan ahead, whether selling now or in the future.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-12 cols-md-12 cols-sm-12 mt-4">
                       <h1>Resale Flat Prices</h1>
                     </div>
+
                     <div class="col-lg-12 cols-md-12 cols-sm-12 mobile-p  mt-4">
                       <div class="upper-result">
                         <h2>Search Results</h2>
 
                         <div class="form-group-wrapper mt-5">
                           <div class="form-group">
-                            <input type="text" name="town" class="form-input" value="<?= $_GET['town'] ?? 'N/A'; ?>" readonly>
+                            <input type="text" name="town" class="form-input" value="<?= $_GET['town'] ?? 'N/A'; ?>" disabled>
                           </div>
                           <div class="form-group">
-                            <input type="text" name="street" class="form-input" value="<?= $_GET['street'] ?? 'N/A'; ?>" readonly>
-                          </div>
-                        </div>
-
-                        <div class="form-group-wrapper">
-                          <div class="form-group">
-                            <input type="text" name="block" class="form-input" value="<?= $_GET['block'] ?? 'N/A'; ?>" readonly>
-                          </div>
-                          <div class="form-group">
-                            <input type="text" name="floor" class="form-input" value="<?= $_GET['floor'] ?? 'N/A'; ?>" readonly>
+                            <input type="text" name="street" class="form-input" value="<?= $_GET['street'] ?? 'N/A'; ?>" disabled>
                           </div>
                         </div>
 
                         <div class="form-group-wrapper">
                           <div class="form-group">
-                            <input type="text" name="unit" class="form-input" value="<?= $_GET['unit'] ?? 'N/A'; ?>" readonly>
+                            <input type="text" name="block" class="form-input" value="<?= $_GET['block'] ?? 'N/A'; ?>" disabled>
                           </div>
                           <div class="form-group">
-                            <input type="text" name="flat_type" class="form-input" value="<?= $_GET['flat_type'] ?? 'N/A'; ?>" readonly>
+                            <input type="text" name="floor" class="form-input" value="<?= $_GET['floor'] ?? 'N/A'; ?>" disabled>
+                          </div>
+                        </div>
+
+                        <div class="form-group-wrapper">
+                          <div class="form-group">
+                            <input type="text" name="unit" class="form-input" value="<?= $_GET['unit_val'] ?? 'N/A'; ?>" disabled>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" name="flat_type" class="form-input" value="<?= $_GET['flat_type'] ?? 'N/A'; ?>" disabled>
                           </div>
                         </div>
 

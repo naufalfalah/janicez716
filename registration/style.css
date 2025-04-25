@@ -15,7 +15,6 @@
   --white: #ffffff;
 }
 
-
 * {
   margin: 0;
   padding: 0;
@@ -25,9 +24,7 @@
 
 body {
   background: var(--primary-color);
-
   color: var(--text-color);
-  overflow-x: hidden;
 }
 
 header {
@@ -52,9 +49,10 @@ a {
   justify-content: space-between;
 }
 
-.banner {
+/* Different */
+/* .banner {
   background-repeat: no-repeat;
-}
+} */
 
 .logo {
   font-size: 18px;
@@ -101,9 +99,10 @@ nav a.active {
 
 .hero {
   text-align: center;
-  padding: 100px 20px 200px;
+  margin: 100px 20px 200px;
   display: flex;
   justify-content: center;
+  z-index: -999;
 }
 
 .flex-wrapper {
@@ -201,22 +200,22 @@ nav a.active {
 }
 
 .container {
-
+  position: relative;
   max-width: 800px;
   background: white;
   margin: -140px auto 40px auto;
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-
 }
 
-.step-stab-main-wrapper {
+/* Different */
+/* .step-stab-main-wrapper {
   position: relative;
   z-index: 990;
-}
+} */
 
-.gradient {
+/* .gradient {
   background-color: #cb00dddb;
   width: 258.44px;
   height: 258.44px;
@@ -225,17 +224,18 @@ nav a.active {
   top: 23%;
   border-radius: 99em;
   filter: blur(242.97px);
-}
+} */
 
-.gradient.after {
+/* .gradient.after {
   left: 100%;
-}
+} */
 
 /* .tabs {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
 } */
+/* Different */
 
 .d-tabs-flex {
   display: flex;
@@ -297,7 +297,10 @@ textarea:hover {
 
 form select,
 form input,
-form textarea {
+form textarea,
+select,
+input,
+textarea {
   width: 100%;
   padding: 10px;
   margin-top: 6px;
@@ -476,6 +479,11 @@ select {
     padding: 30px;
     margin: 30px;
   }
+
+  .input-row {
+    display: block;
+    gap: 10px;
+  }
 }
 
 /* Mobile Devices */
@@ -545,6 +553,17 @@ select {
   .button {
     width: 100%;
     padding: 15px;
+  }
+
+  .form-field-wrapper {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      width: 100% !important;
+  }
+
+  .flex-wrapper {
+      width: 100%;
   }
 }
 
@@ -624,6 +643,115 @@ select {
   }
 }
 
-.error-message {
-  color: red !important;
+/* popup */
+#popup-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.popup {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+  max-width: 300px;
+}
+
+.user-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #00937b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px 0px 0px 8px;
+}
+
+.popup-content {
+  font-size: 12px;
+  padding: 10px;
+  line-height: 1.4;
+  color: #333;
+  flex: 1;
+}
+
+.user-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 768px) {
+  .select2-dropdown {
+    width: 100% !important;
+  }
+}
+
+/* change checkbox color */
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  position: relative;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: var(--white);
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+}
+
+.select2-container {
+  width: 100% !important;
+}
+
+/* 
+.selection {
+  height: 42px !important;
+} */
+
+.select2-selection {
+  height: 42px !important;
+  padding: 12px 4 !important;
+  padding-top: 8px !important;
+  border: 1px solid var(--form-border);
+  border-radius: 5px;
+  background-color: white;
+  transition: border-color 0.3s ease;
+}
+
+.select2-selection:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.select2-selection__rendered {
+  padding: 0;
+  line-height: 42px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.select2-selection__arrow {
+  height: 42px;
+  right: 10px;
 }

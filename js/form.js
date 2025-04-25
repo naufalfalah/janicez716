@@ -104,6 +104,8 @@ $(document).ready(function () {
                 .catch(error => console.error("Error loading blocks:", error));
         });
     } else if (form == 'contact') {
+        const form_type = params.get("form_type") || "hdb";
+        initialTab(form_type);
         const formProperty = document.getElementById('form-property');
 
         params.forEach((value, key) => {
@@ -381,42 +383,34 @@ setInterval(showPopup, 10000); // Every 10 seconds (5 seconds display + 5 second
 // Initial call to show the first popup immediately
 showPopup();
 
+const tabs = document.querySelectorAll(".tab");
+const formSections = {
+    hdb: document.getElementById("form-hdb"),
+    condo: document.getElementById("form-condo"),
+    contact: document.getElementById("form-contact"),
+};
+
+function initialTab(form) {
+    console.log('initial tab')
+    tabs.forEach((tab) => {
+        if (tab.getAttribute("data-form") === form ) {
+            tab.classList.add("active");
+        } else {
+            tab.classList.remove("active");
+        }
+    });
+}
+
+function showForm(formType) {
+    Object.keys(formSections).forEach((type) => {
+        formSections[type].style.display =
+            type === formType ? "block" : "none";
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-    const tabs = document.querySelectorAll(".tab");
-    const formSections = {
-        hdb: document.getElementById("form-hdb"),
-        condo: document.getElementById("form-condo"),
-        contact: document.getElementById("form-contact"),
-    };
-
-    function showForm(formType) {
-        tabs.forEach((tab) => {
-            if (tab.getAttribute("data-form") === form ) {
-                tab.classList.add("active");
-            } else {
-                tab.classList.remove("active");
-            }
-        });
-
-        Object.keys(formSections).forEach((type) => {
-            formSections[type].style.display =
-                type === formType ? "block" : "none";
-        });
+    if (form !== "contact") {
+        initialTab(form);
     }
-
-    // tabs.forEach((tab) => {
-    //     tab.addEventListener("click", function () {
-    //         tabs.forEach((t) => t.classList.remove("active"));
-    //         this.classList.add("active");
-
-    //         const formType = this.getAttribute("data-form").toLowerCase();
-    //         const newUrl = `${window.location.pathname}?form=${formType}`;
-    //         window.history.pushState({ path: newUrl }, "", newUrl);
-    //         showForm(formType);
-    //     });
-    // });
-
-    // const params = new URLSearchParams(window.location.search);
-    // const initialForm = params.get("form") || "hdb";
     showForm(form);
 });

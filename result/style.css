@@ -320,3 +320,163 @@ input::placeholder{
     padding-left: 16px;
     margin-bottom: -3px;
 }
+
+
+.hdb-val-card {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgba(46, 139, 87, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hdb-val-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.3px;
+}
+
+.hdb-val-content p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hdb-val-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 8px;
+}
+
+.hdb-val-content li {
+    font-size: 12px;
+    padding: 5px 8px 5px 20px;
+    position: relative;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+.hdb-val-content li:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.hdb-val-content li:before {
+    content: "*";
+    position: absolute;
+    left: 8px;
+    color: #fff;
+    font-size: 12px;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 16px;
+    width: 16px;
+    background-color: var(--white);
+    border-radius: 50%;
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7a1 1 0 0 0-1.41 1.41L10.59 12l-4.89 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.41z"/></svg>') no-repeat center;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7a1 1 0 0 0-1.41 1.41L10.59 12l-4.89 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.41z"/></svg>') no-repeat center;
+    mask-size: contain;
+    -webkit-mask-size: contain;
+}
+
+#hdb-table, #condo-table {
+    margin-bottom: 36px;
+}
+
+.dataTables_length {
+    margin-bottom: 20px;
+}
+
+.dataTables_length label {
+    width: 100%;
+}
+
+.dataTables_length label select {
+    color: var(--white);
+    background-color: transparent;
+    width: 100%;
+}
+
+.dataTables_length label select:focus {
+    color: black;
+    background-color: transparent;
+    width: 100%;
+}
+
+.dataTables_filter label {
+    width: 100%;
+}
+
+.dataTables_filter label input {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    width: 100%;
+    color: var(--white);
+}
+
+.dataTables_filter label input:focus {
+    color: var(--white);
+    background-color: transparent;
+}
+
+.dataTables_info {
+    color: var(--white);
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.dataTables_paginate {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.dataTables_paginate .paginate_button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    background-color: var(--hover-color);
+}
+
+.dataTables_paginate .paginate_button.current {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.dataTables_paginate .paginate_button a {
+    background-color: transparent !important;
+    color: var(--white) !important;
+    text-decoration: none !important;
+    border: none !important;
+}
+.dataTables_paginate .paginate_button a:focus {
+    outline: none;
+}

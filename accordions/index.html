@@ -334,6 +334,18 @@
 
             triggers.forEach((trigger, index) => {
                 trigger.addEventListener('click', function () {
+                    const isActive = this.classList.contains('active');
+                    if (isActive) {
+                        this.classList.remove('active');
+                        const content = this.nextElementSibling;
+                        const icon = this.querySelector('.accoridon-icon img');
+                        const parentItem = this.closest('.accordion-item');
+
+                        content.style.height = '0px';
+                        icon.classList.remove('rotated');
+                        parentItem.classList.remove('active-bg');
+                        return;
+                    }
 
                     // Sub ko band karo
                     triggers.forEach(t => t.classList.remove('active'));

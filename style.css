@@ -512,6 +512,11 @@ select {
     padding: 30px;
     margin: 30px;
   }
+          
+  .input-row {
+    display: block;
+    gap: 10px;
+  }
 }
 
 /* Mobile Devices */
@@ -671,4 +676,63 @@ select {
 
 .error-message {
   color: red !important;
+}
+.hdb-val-card {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: rgba(46, 139, 87, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hdb-val-title {
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+.hdb-val-content p {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hdb-val-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 8px;
+}
+
+.hdb-val-content li {
+  font-size: 12px;
+  padding: 5px 8px 5px 20px;
+  position: relative;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.hdb-val-content li:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.hdb-val-content li:before {
+  content: "*";
+  position: absolute;
+  left: 8px;
+  color: #fff;
+  font-size: 12px;
 }
