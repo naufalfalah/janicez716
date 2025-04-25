@@ -1,303 +1,265 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>uravaluationdatas</title>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  </head>
-  <body>
-    <section class="banner">
-        <header>
-          <div class="hero">
-            <div class="hero-wrapper">
-              <h1>PROPERTY VALUATION CALCULATOR</h1>
-              <p>
-                The data is based on registered resale applications and is updated
-                daily. Use this calculator to determine how much you could
-                potentially sell your own property.
-              </p>
-            </div>
-          </div>
-          <div class="floating-icons">
-            <a href="https://www.facebook.com/Nestnook.News/">
-                <button title="Facebook">
-                    <span class="icon-label">Facebook</span>
-                    <i class="fab fa-facebook-f"></i>
-                </button>
-            </a>
 
-            <a href="https://www.instagram.com/nestnook.news/">
-                <button title="Facebook">
-                    <span class="icon-label">Instagram</span>
-                    <i class="fa-brands fa-instagram"></i>
-                </button>
-            </a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>uravaluationdatas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
 
-            <a href="../accordions/">
-                <button title="Twitter">
-                    <span class="icon-label">FAQ's</span>
-                <i class="fa-solid fa-circle-question"></i>
-                </button>
-            </a>
+<body>
+  <header>
+    <div class="hero">
+      <div class="hero-wrapper">
+        <h1>PROPERTY VALUATION CALCULATOR</h1>
+        <p>
+          The data is based on registered resale applications and is updated
+          daily. Use this calculator to determine how much you could
+          potentially sell your own property.
+        </p>
       </div>
-        </header>
-    </section>
-    
-    <div class="step-stab-main-wrapper">
-        <div class="gradient before"></div>
-        <div class="container">
-            
-          <div class="tabs">
-            <div class="tab active" id="tab-hdb" data-form="hdb">HDB</div>
-            <div class="tab" id="tab-condo" data-form="condo">CONDO</div>
-          </div>
-
-          <div id="form-hdb" class="form-section active-form">
-            <form action="../contact.html">
-              <label for="town">Where is your HDB located? *</label>
-              <div class="custom-select-wrapper">
-                <select id="town" name="town" required>
-                  <option value="">Choose Town</option>
-                  <option value="ang-mo-kio">Ang Mo Kio</option>
-                  <option value="bedok">Bedok</option>
-                  <option value="bishan">Bishan</option>
-                  <option value="bukit-batok">Bukit Batok</option>
-                  <option value="bukit-merah">Bukit Merah</option>
-                  <option value="bukit-panjang">Bukit Panjang</option>
-                  <option value="bukit-timah">Bukit Timah</option>
-                  <option value="central-area">Central Area</option>
-                  <option value="choa-chu-kang">Choa Chu Kang</option>
-                  <option value="clementi">Clementi</option>
-                  <option value="geylang">Geylang</option>
-                  <option value="hougang">Hougang</option>
-                  <option value="jurong-east">Jurong East</option>
-                  <option value="jurong-west">Jurong West</option>
-                  <option value="kallang-whampoa">Kallang / Whampoa</option>
-                  <option value="marine-parade">Marine Parade</option>
-                  <option value="pasir-ris">Pasir Ris</option>
-                  <option value="punggol">Punggol</option>
-                  <option value="queenstown">Queenstown</option>
-                  <option value="sembawang">Sembawang</option>
-                  <option value="sengkang">Sengkang</option>
-                  <option value="serangoon">Serangoon</option>
-                  <option value="tampines">Tampines</option>
-                  <option value="tengah">Tengah</option>
-                  <option value="toa-payoh">Toa Payoh</option>
-                  <option value="woodlands">Woodlands</option>
-                  <option value="yishun">Yishun</option>
-                </select>
-              </div>
-
-              <div class="main-flex-wrapper" style="display: flex; gap: 10px">
-                <div class="flex-wrapper">
-                  <label for="street">What is your Street Name?</label>
-                  <input type="text" id="street" name="street" placeholder="Street Name" required/>
-                </div>
-                <div class="flex-wrapper">
-                  <label for="block">Block No (BLK)? *</label>
-                  <input type="text" id="blk" name="blk" placeholder="Block Number" required/>
-                </div>
-              </div>
-              <div class="main-flex-wrapper" style="display: flex; gap: 10px">
-                <div class="flex-wrapper">
-                  <label for="flat-type">HDB Flat Type? *</label>
-                  <div class="custom-select-wrapper">
-                    <select id="flat-type" required>
-                      <option value="">Choose Flat Type</option>
-                      <option value="2-room">2-Room</option>
-                      <option value="3-room">3-Room</option>
-                      <option value="4-room">4-Room</option>
-                      <option value="executive/multi-generation">
-                        Executive/Multi-Generation
-                      </option>
-                    </select>
-                  </div>
-                </div>
-                <div class="flex-wrapper">
-                  <label for="sell-property"
-                    >Are you looking to sell your property? *</label
-                  >
-                  <div class="custom-select-wrapper">
-                    <select id="sell-property" required>
-                      <option value="">Choose Option</option>
-                      <option value="0-months">0-3 months</option>
-                      <option value="3-months">3-6 months</option>
-                      <option value="6-months">6-12 months</option>
-                      <option value="exploring-options">Exploring options</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <label for="unit-number">What is your unit number? *</label>
-              <div class="main-flex-wrapper" style="display: flex; gap: 10px">
-                <input type="text" id="floor" name="floor" placeholder="Floor" required style="flex: 1"/>
-                <input type="text" id="unit" name="unit" placeholder="Unit" required style="flex: 1"/>
-              </div>
-
-              <p style="margin-top: 20px">
-                Please fill up your details and you will be able to retrieve an
-                automated LIVE report extracted base on URA data past transaction
-                reports and a precise property valuation for your unit.
-              </p>
-
-              <button class="button" type="submit">
-                <i class="fas fa-paper-plane"></i>
-                Let's Get Started
-              </button>
-            </form>
-          </div>
-
-          <div id="form-condo" class="form-section">
-            <form action="../contact.html">
-              <label for="project-name">Project Name *</label>
-              <select id="project-name" name="project-name" required>
-                <option value="">Choose Project</option>
-                <option value="turquoise">TURQUOISE</option>
-                <option value="duo">DUO</option>
-                <option value="marina-one">Marina One</option>
-                <option value="the-interlace">The Interlace</option>
-                <option value="skywaters-residences">Skywaters Residences</option>
-                <option value="watertown">Watertown</option>
-                <option value="the-bayshore">The Bayshore</option>
-                <option value="holland-grove-park">HOLLAND GROVE PARK</option>
-              </select>
-
-              <label for="block">Block No (BLK)? *</label>
-              <input type="text" id="block" name="block" placeholder="Block Number" required/>
-
-              <label for="sell-property">When do you plan to sell your property? *</label>
-              <select id="sell-property" name="sell-property" required>
-                <option value="">Choose Option</option>
-                <option value="1-3-months">1-3 months</option>
-                <option value="3-6-months">3-6 months</option>
-                <option value="6-12-months">6-12 months</option>
-                <option value="exploring-options">Exploring options</option>
-              </select>
-
-              <label for="unit-number">What is your unit number? *</label>
-              <div class="main-flex-wrapper" style="display: flex; gap: 10px">
-                <input type="text" id="floor" name="floor" placeholder="Floor" required style="flex: 1"/>
-                <input type="text" id="unit" name="unit" placeholder="Unit" required style="flex: 1"/>
-              </div>
-
-              <p style="margin-top: 20px">
-                This reports uses reliable sources like URA trends, transaction
-                reports, and X-Value for quick and precise property estimated
-                valuations and provides your unit report.
-              </p>
-
-              <button class="button" type="submit">
-                <i class="fas fa-paper-plane"></i>Let's Get Started
-              </button>
-            </form>
-          </div>
-          
-        </div>
-        <div class="gradient after"></div>
     </div>
-    <footer>&copy; 2025 barobill Developers. All rights reserved.</footer>
-    <div id="popup-container">
-      <div class="popup" style="opacity: 0;">
-          <div class="user-icon">
-              <img src="https://i.ibb.co/GfXy149N/pixelcut-export.png" alt="User Icon">
-          </div>
-          <div class="popup-content">Emily Tan Wei Ling<br> just submitted recently</div>
+    <div class="floating-icons">
+      <a href="https://www.facebook.com/Nestnook.News/">
+        <button title="Facebook">
+          <span class="icon-label">Facebook</span>
+          <i class="fab fa-facebook-f"></i>
+        </button>
+      </a>
+
+      <a href="https://www.instagram.com/nestnook.news/">
+        <button title="Facebook">
+          <span class="icon-label">Instagram</span>
+          <i class="fa-brands fa-instagram"></i>
+        </button>
+      </a>
+
+      <a href="../accordions/">
+        <button title="Twitter">
+          <span class="icon-label">FAQ's</span>
+          <i class="fa-solid fa-circle-question"></i>
+        </button>
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="tabs">
+      <div class="d-tabs-flex">
+        <a href="?form=hdb" class="tab active" id="tab-hdb" data-form="hdb">HDB</a>
+        <a href="?form=condo" class="tab" id="tab-condo" data-form="condo">CONDO</a>
       </div>
+    </div>
+
+    <div id="form-hdb" class="form-section">
+      <input type="hidden" name="form_type" value="hdb">
+
+      <div style="margin-bottom: 8px;">
+        <label for="town">Where is your HDB located? *</label>
+        <div class="custom-select-wrapper">
+          <select id="town" name="town" required>
+          </select>
+          <p class="error-message town-error"></p>
+        </div>
+      </div>
+
+      <div class="form-field-wrapper" style="display: flex; gap: 10px; margin-bottom: 8px;">
+        <div class="flex-wrapper">
+          <label for="street">What is your Street Name?</label>
+          <select id="street" name="street" required>
+          </select>
+          <p class="error-message street-error"></p>
+        </div>
+
+        <div class="flex-wrapper">
+          <label for="block">Block No (BLK)? *</label>
+          <select id="hdb-block" name="block" required>
+          </select>
+          <p class="error-message block-error"></p>
+        </div>
+      </div>
+
+      <div class="form-field-wrapper" style="display: flex; gap: 10px">
+        <div class="flex-wrapper">
+          <label for="flat_type">HDB Flat Type? *</label>
+          <div class="custom-select-wrapper">
+            <select id="flat_type" name="flat_type" required>
+              <option value="">Choose Flat Type</option>
+              <option value="2-room">2-Room</option>
+              <option value="3-room">3-Room</option>
+              <option value="4-room">4-Room</option>
+              <option value="executive/multi-generation">
+                Executive/Multi-Generation
+              </option>
+            </select>
+          </div>
+          <p class="error-message flat_type-error"></p>
+        </div>
+
+        <div class="flex-wrapper">
+          <label for="sell">Are you looking to sell your property? *</label>
+          <div class="custom-select-wrapper">
+            <select id="hdb-sell" name="sell" required>
+              <option value="">Choose Option</option>
+              <option value="0-months">0-3 months</option>
+              <option value="3-months">3-6 months</option>
+              <option value="6-months">6-12 months</option>
+              <option value="exploring-options">Exploring options</option>
+            </select>
+          </div>
+          <p class="error-message sell-error"></p>
+        </div>
+      </div>
+
+      <label for="unit-number">What is your unit number? *</label>
+      <div class="form-field-wrapper" style="display: flex; gap: 10px">
+        <div style="flex: 1">
+          <input type="text" id="hdb-floor" name="floor" placeholder="Floor" required maxlength="2" style="width: 100%;" />
+          <p class="error-message floor-error"></p>
+        </div>
+        
+        <div style="flex: 1">
+          <input type="text" id="hdb-unit" name="unit" placeholder="Unit" required maxlength="4" style="width: 100%;" />
+          <p class="error-message unit-error"></p>
+        </div>
+      </div>
+
+      <p style="margin-top: 20px">
+        Please fill up your details and you will be able to retrieve an
+        automated LIVE report extracted base on URA data past transaction
+        reports and a precise property valuation for your unit.
+      </p>
+
+      <button class="button button-next" type="button">
+        <i class="fas fa-paper-plane"></i>
+        Let's Get Started
+      </button>
+    </div>
+
+    <div id="form-condo" class="form-section">
+      <input type="hidden" name="form_type" value="condo">
+
+      <div style="margin-bottom: 8px;">
+        <label for="project">Project Name *</label>
+        <select id="project" name="project" required>
+        </select>
+        <p class="error-message project-error"></p>
+      </div>
+
+      <div style="margin-bottom: 8px;">
+        <label for="block" style="width: 100%;">Block No (BLK)? *</label>
+        <input type="text" id="condo-block" name="block" placeholder="Block Number" maxlength="15" required style="width: 100%;" />
+        <!-- <p class="error-message block-error"></p> -->
+      </div>
+
+      <label for="sell">When do you plan to sell your property? *</label>
+      <select id="condo-sell" name="sell" required>
+        <option value="">Choose Option</option>
+        <option value="1-3-months">1-3 months</option>
+        <option value="3-6-months">3-6 months</option>
+        <option value="6-12-months">6-12 months</option>
+        <option value="exploring-options">Exploring options</option>
+      </select>
+      <p class="error-message sell-error"></p>
+
+      <label for="unit-number">What is your unit number? *</label>
+      <div class="form-field-wrapper" style="display: flex; gap: 10px">
+        <div style="flex: 1;">
+          <input type="text" id="condo-floor" name="floor" placeholder="Floor" required maxlength="2" style="width: 100%;" />
+          <p class="error-message floor-error"></p>
+        </div>
+        <div style="flex: 1;">
+            <input type="text" id="condo-unit" name="unit" placeholder="Unit" required maxlength="4" style="width: 100%;" />
+          <p class="error-message unit-error"></p>
+        </div>
+      </div>
+
+      <p style="margin-top: 20px">
+        This reports uses reliable sources like URA trends, transaction
+        reports, and X-Value for quick and precise property estimated
+        valuations and provides your unit report.
+      </p>
+
+      <button class="button button-next" type="button">
+        <i class="fas fa-paper-plane"></i>Let's Get Started
+      </button>
+    </div>
+
+    <div id="form-contact" class="form-section">
+      <form action="../submit.php" method="post" id="submit-form">
+        <input type="hidden" name="source_url" value="https://findmypropertyvalaution.homes/">
+        <input type="hidden" name="lead_id" id="lead_id" value="">
+        <input type="hidden" name="ip" value="">
+        <div id="form-property"></div>
+
+        <label for="name">My Name is: *</label>
+        <div class="input-row">
+          <div style="flex: 1;">
+            <div class="input-icon">
+              <i class="fas fa-user"></i>
+              <input type="text" id="name" name="name" placeholder="Enter First Name..." required />
+            </div>
+            <p class="error-message name-error"></p>
+          </div>
+
+          <div style="flex: 1;">
+            <div class="input-icon">
+              <i class="fas fa-phone"></i>
+              <input type="tel" id="ph_number" name="ph_number" placeholder="+65" required maxlength="8" />
+            </div>
+            <p class="error-message ph_number-error"></p>
+          </div>
+        </div>
+
+        <label for="email">Email Address: *</label>
+        <div class="input-icon">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" name="email" placeholder="Enter email address..." required />
+          <p class="error-message email-error"></p>
+        </div>
+
+        <label for="terms" class="check-box-label">
+          <input type="checkbox" id="terms" name="terms" class="custom-input" required />
+          <p class="check-box-p">
+            I consent to the collection, use, and disclosure of my personal
+            data for purposes as set out in our
+            <a href="../policy.html" target="_blank">Privacy Policy</a>.
+          </p>
+        </label>
+
+        <button class="button" type="submit">
+          <i class="fas fa-paper-plane"></i>Get immediate result
+        </button>
+
+      </form>
+    </div>
+
   </div>
-  <script>
-    const names = [
-        "Emily Tan Wei Ling",
-        "Brandon Ng Jia Hao",
-        "Siti Nur Aisyah Binti Ahmad",
-        "Darren Lim Xin Rui",
-        "Nurul Izzati Binti Hassan",
-        "Rachel Wong Yi Xuan",
-        "Muhammad Faris Bin Zulkifli",
-        "Sophia Lee Mei Zhen",
-        "Hafiz Rahman Bin Ismail",
-        "Chloe Cheng Yu Xuan"
-    ];
+  <footer>&copy; 2025 barobill Developers. All rights reserved.</footer>
+  <div id="popup-container">
+    <div class="popup" style="opacity: 1;">
+      <div class="user-icon">
+        <img src="https://i.ibb.co/GfXy149N/pixelcut-export.png" alt="User Icon">
+      </div>
+      <div class="popup-content">Muhammad Faris Bin Zulkifli<br> just submitted recently</div>
+    </div>
+  </div>
 
-    let currentIndex = 0;
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.3/js/standalone/selectize.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="../js/form.js"></script>
+</body>
 
-    function showPopup() {
-        const popupContent = document.querySelector('.popup-content');
-        const name = names[currentIndex];
-        // Only show the name with 'submitted recently' text
-        popupContent.innerHTML = `${name}<br> just submitted recently`;
-
-        // Show the popup
-        const popup = document.querySelector('.popup');
-        popup.style.opacity = '1';
-
-        // Hide the popup after 5 seconds
-        setTimeout(() => {
-            popup.style.opacity = '0';
-            currentIndex = (currentIndex + 1) % names.length; // Move to the next name
-        }, 5000);
-    }
-
-    // Start showing popups every 10 seconds
-    setInterval(showPopup, 10000); // Every 10 seconds (5 seconds display + 5 seconds wait)
-
-    // Initial call to show the first popup immediately
-    showPopup();
-</script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const tabs = document.querySelectorAll(".tab");
-        const formSections = {
-          hdb: document.getElementById("form-hdb"),
-          condo: document.getElementById("form-condo"),
-        };
-
-        function showForm(formType) {
-          Object.keys(formSections).forEach((type) => {
-            formSections[type].style.display =
-              type === formType ? "block" : "none";
-          });
-        }
-
-        tabs.forEach((tab) => {
-          tab.addEventListener("click", function () {
-            tabs.forEach((t) => t.classList.remove("active"));
-            this.classList.add("active");
-
-            const formType = this.getAttribute("data-form").toLowerCase();
-            const newUrl = `${window.location.pathname}?form=${formType}`;
-            window.history.pushState({ path: newUrl }, "", newUrl);
-            showForm(formType);
-          });
-        });
-
-        const params = new URLSearchParams(window.location.search);
-        const initialForm = params.get("form") || "hdb";
-        showForm(initialForm);
-
-        tabs.forEach((tab) => {
-          if (tab.getAttribute("data-form") === initialForm) {
-            tab.classList.add("active");
-          } else {
-            tab.classList.remove("active");
-          }
-        });
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const links = document.querySelectorAll(".nav-link");
-
-        links.forEach((link) => {
-          link.addEventListener("click", function () {
-            links.forEach((l) => l.classList.remove("active"));
-            this.classList.add("active");
-          });
-        });
-      });
-    </script>
-  </body>
 </html>

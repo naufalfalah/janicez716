@@ -227,10 +227,16 @@ nav a.active {
 .gradient.after {
     left: 100%;
 }
-.tabs {
+/* .tabs {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+} */
+
+.d-tabs-flex {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .tab {
