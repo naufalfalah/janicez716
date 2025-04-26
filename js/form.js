@@ -122,6 +122,41 @@ $(document).ready(function () {
         })
     }
 
+    let changeForm = false;
+    $('.tab').on('click', function () {
+        const selectForm = $(this).data('form');
+        
+        if (form === selectForm) {
+            return;
+        }
+
+        let isFilled = false;
+        if (form === 'condo') {
+            $('#form-condo').find('input:not([type="hidden"]), select').each(function () {
+                if ($(this).val()) {
+                    console.log($(this).val());
+                    isFilled = true;
+                }
+            });
+        } else if (form === 'hdb') {
+            $('#form-hdb').find('input:not([type="hidden"]), select').each(function () {
+                if ($(this).val()) {
+                    console.log($(this).val());
+                    isFilled = true;
+                }
+            });
+        }
+
+        if (isFilled && !changeForm) {
+            $('.tab-error').text('The information you provided will be lost. (Click again to switch the form)');
+            changeForm = true;
+            return;
+        }
+        
+        const currentUrl = window.location.origin + window.location.pathname;
+        window.location.href = `${currentUrl}?form=${selectForm}`;
+    });
+    
     $('.button-next').on('click', function () {
         console.log('next'. form)
         submitted = true;
