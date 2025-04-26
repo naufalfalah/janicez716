@@ -181,7 +181,7 @@ nav a.active {
 
 .hero {
   text-align: center;
-  padding: 100px 20px 200px;
+  /* padding: 100px 20px 200px; */
   display: flex;
   justify-content: center;
 }

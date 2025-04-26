@@ -247,6 +247,7 @@ nav a.active {
 .tab {
   padding: 10px 24px;
   margin: 0 5px;
+  border: none;
   border-radius: 25px;
   background: var(--background-color);
   cursor: pointer;
@@ -750,4 +751,9 @@ input[type="checkbox"]:checked::after {
 .select2-selection__arrow {
   height: 42px;
   right: 10px;
+}
+
+/* privacy */
+.privacy {
+  color: var(--primary-color-solid);
 }

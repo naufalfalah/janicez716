@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Result</title>
+  <title>Result | Property Valuation Calculator</title>
 
   <!-- EXTERNAL CSS -->
   <link rel="stylesheet" type="text/css" href="style.css">
