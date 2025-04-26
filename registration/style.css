@@ -684,18 +684,17 @@ select {
   height: 30px;
 }
 
-@media (max-width: 768px) {
-  .select2-dropdown {
-    width: 100% !important;
-  }
+/* error message */
+.error-message {
+  color: red !important;
 }
 
-/* change checkbox color */
+/* checkbox */
 input[type="checkbox"] {
   appearance: none;
   width: 20px;
   height: 20px;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--primary-color-solid);
   border-radius: 4px;
   background-color: transparent;
   cursor: pointer;
@@ -703,8 +702,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: var(--primary-color-solid);
+  border-color: var(--primary-color-solid);
   position: relative;
 }
 
@@ -720,14 +719,10 @@ input[type="checkbox"]:checked::after {
   border-radius: 2px;
 }
 
+/* select2 */
 .select2-container {
   width: 100% !important;
 }
-
-/* 
-.selection {
-  height: 42px !important;
-} */
 
 .select2-selection {
   height: 42px !important;
