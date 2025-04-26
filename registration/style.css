@@ -99,10 +99,9 @@ nav a.active {
 
 .hero {
   text-align: center;
-  margin: 100px 20px 200px;
+  padding: 100px 20px 200px;
   display: flex;
   justify-content: center;
-  z-index: -999;
 }
 
 .flex-wrapper {
@@ -184,19 +183,21 @@ nav a.active {
   font-size: 14px;
 }
 
-.floating-icons button:hover .icon-label {
-  opacity: 1;
-}
+@media (max-width: 768px) {
+  .floating-icons button:hover .icon-label {
+    opacity: 1;
+  }
 
-.icon-label::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -10px;
-  transform: translateY(-50%);
-  border-width: 6px;
-  border-style: solid;
-  border-color: transparent transparent transparent var(--white);
+  .icon-label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--white);
+  }
 }
 
 .container {
