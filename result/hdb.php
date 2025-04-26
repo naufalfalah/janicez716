@@ -94,30 +94,12 @@
                   <div class="row">
                     <div class="col-lg-12 cols-md-12 cols-sm-12 mobile-p  mt-4">
                       <div class="upper-result">
-                        <!-- <div class="row border-bottom">
-                          <div class="col-lg-4 cols-md-4 cols-sm-6">
-                            <h2 style="border-bottom: none;">Search Table</h2>
-                          </div>
-                          <div class="col-lg-4 cols-md-4 cols-sm-6">
-                            <div class="flat-type-input">
-                              <select name="flat_type" class="form-selectt">
-                                <option value="">Select entries</option>
-                                <option value="1 ROOM">1</option>
-                                <option value="3 ROOM">3</option>
-                                <option value="4 ROOM">4</option>
-                                <option value="6 ROOM">6</option>
-                                <option value="8 ROOM">8</option>
-                                <option value="10 ROOM">10</option>
-                              </select>
+                        <div class="filter-wrapper">
+                            <div class="filter-buttons-box">
+                                <button type="button" id="block-filter" class="btn-filter">Your Block</button>
+                                <button type="button" id="cluster-filter" class="btn-filter">Your Custer</button>
                             </div>
-                          </div>
-                          <div class="col-lg-4 cols-md-4 cols-sm-12">
-                            <form action="" class="search-container">
-                              <button type="submit"><i class="fa fa-search"></i></button>
-                              <input type="text" placeholder="Search..." name="search" class="form-input">
-                            </form>
-                          </div>
-                        </div> -->
+                        </div>
 
                         <table id="hdb-table">
                           <thead>
@@ -161,9 +143,21 @@
       let town = <?= json_encode($_GET['town'] ?? '') ?>;
       let flat_type = <?= json_encode($_GET['flat_type'] ?? '') ?>;
       let block = <?= json_encode($_GET['block'] ?? '') ?>;
+      let selectedBlock = '<?=$response['lead_details'][2]['lead_form_value'] ?? "321" ?>';
+      let youBlock = false;
 
       $(document).ready(function() {
-          initTable();
+        initTable();
+      });
+
+      $('#block-filter').on('click', function() {
+        youBlock = true;
+        initTable();
+      });
+
+      $('#cluster-filter').on('click', function() {
+        youBlock = false;
+        initTable();
       });
 
       function initTable() {
@@ -242,14 +236,17 @@
 
           for (let index = 0; index < records.length; index++) {
               const entry = records[index];
+              if ((youBlock && selectedBlock) && entry.block !== selectedBlock) {
+                continue;
+              }
 
               tableData.push([
-                  formatCurrency(entry.resale_price),
-                  formatDate(entry.month),
-                  `${entry.block}, ${entry.street_name}`,
-                  `${entry.floor_area_sqm} sqm`,
-                  entry.storey_range,
-                  entry.remaining_lease
+                formatCurrency(entry.resale_price),
+                formatDate(entry.month),
+                `${entry.block}, ${entry.street_name}`,
+                `${entry.floor_area_sqm} sqm`,
+                entry.storey_range,
+                entry.remaining_lease
               ]);
           }
 

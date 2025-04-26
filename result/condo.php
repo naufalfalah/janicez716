@@ -1,3 +1,12 @@
+<?php
+
+require_once('../report.php');
+
+$town = $response['lead_details'][0]['lead_form_value'];
+$flat_type = $response['lead_details'][2]['lead_form_value'];
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -35,19 +44,19 @@
                       <div class="hdb-val-card">
                         <h3 class="hdb-val-title"><strong>FREE Home Valuation Report</strong></h3>
                         <div class="hdb-val-content">
-                            <p>
-                              Expect a call from us soon with a complimentary consultation for <span id="full-address-result"><?= json_encode($_GET['full_address'] ?? '') ?></span>. Get a clear picture of your HDB unit <span id="unit-result"><?= json_encode($_GET['unit'] ?? '') ?></span> selling price with no obligations.
-                            </p>
-                            <ul>
-                              <li>Recent rentals nearby</li>
-                              <li>Highest transactions</li>
-                              <li>Last 3 months report</li>
-                              <li>Potential selling price</li>
-                              <li>X-Value estimate</li>
-                              <li>Nearby HDB comparison</li>
+                          <p>
+                            Expect a call from us soon with a complimentary consultation for <span id="full-address-result"><?= json_encode($_GET['full_address'] ?? '') ?></span>. Get a clear picture of your HDB unit <span id="unit-result"><?= json_encode($_GET['unit'] ?? '') ?></span> selling price with no obligations.
+                          </p>
+                          <ul>
+                            <li>Recent rentals nearby</li>
+                            <li>Highest transactions</li>
+                            <li>Last 3 months report</li>
+                            <li>Potential selling price</li>
+                            <li>X-Value estimate</li>
+                            <li>Nearby HDB comparison</li>
                           </ul>
                           <p>
-                              Get market trends analysis to help you plan ahead, whether selling now or in the future.
+                            Get market trends analysis to help you plan ahead, whether selling now or in the future.
                           </p>
                         </div>
                       </div>
@@ -85,44 +94,73 @@
                   <div class="row">
                     <div class="col-lg-12 cols-md-12 cols-sm-12 mobile-p  mt-4">
                       <div class="upper-result">
-                        <!-- <div class="row border-bottom">
-                          <div class="col-lg-4 cols-md-4 cols-sm-6">
-                            <h2 style="border-bottom: none;">Search Table</h2>
-                          </div>
-                          <div class="col-lg-4 cols-md-4 cols-sm-6">
-                            <div class="flat-type-input">
-                              <select name="flat_type" class="form-selectt">
-                                <option value="">Select entries</option>
-                                <option value="1 ROOM">1</option>
-                                <option value="3 ROOM">3</option>
-                                <option value="4 ROOM">4</option>
-                                <option value="6 ROOM">6</option>
-                                <option value="8 ROOM">8</option>
-                                <option value="10 ROOM">10</option>
-                              </select>
+                          <div class="row">
+                            <input type="hidden" name="project" id="project" value="<?= $project_id; ?>">
+                            <div class="col-6 col-md-3">
+                              <div class="mb-3">
+                                <label for="sales_dates" class="form-label">SALES OF YEAR</label>
+                                <select name="sales_dates" id="sales_dates" class="form-control basic">
+                                  <?= @$sales_date_option ?>
+                                </select>
+                              </div>
                             </div>
-                          </div>
-                          <div class="col-lg-4 cols-md-4 cols-sm-12">
-                            <form action="" class="search-container">
-                              <button type="submit"><i class="fa fa-search"></i></button>
-                              <input type="text" placeholder="Search..." name="search" class="form-input">
-                            </form>
-                          </div>
-                        </div> -->
+
+                            <div class="col-6 col-md-3">
+                              <div class="mb-3">
+                                <label for="type_of_sales" class="form-label">TYPE OF SALE</label>
+                                <select name="type_of_sales" id="type_of_sales" class="form-control basic">
+                                  <option value="">Any type</option>
+                                  <option value="1" <?= isset($_GET['type_of_sales']) && !empty($_GET["type_of_sales"]) && $_GET["type_of_sales"] == 1 ? 'selected' : 'null' ?>>New Sale</option>
+                                  <option value="2" <?= isset($_GET['type_of_sales']) && !empty($_GET["type_of_sales"]) && $_GET["type_of_sales"] == 2 ? 'selected' : 'null' ?>>Sub Sale</option>
+                                  <option value="3" <?= isset($_GET['type_of_sales']) && !empty($_GET["type_of_sales"]) && $_GET["type_of_sales"] == 3 ? 'selected' : 'null' ?>>Resale</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                              <div class="mb-3">
+                                <label for="floor_range" class="form-label">Floor Range</label>
+                                <select name="floor_range" id="floor_range" class="form-control basic">
+                                  <option value="">Any Floor Range</option>
+                                  <option value="1-10">Low floor 1-10</option>
+                                  <option value="10-20">Mid floor 10-20</option>
+                                  <option value="20 and above">High floor 20 and above</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                              <div class="mb-3">
+                                <label for="area_sqft" class="form-label">Area (Sqft)</label>
+                                <select name="area_sqft" id="area_sqft" class="form-control basic">
+                                  <option value="">Any Area (Sqft)</option>
+                                  <option value="400-600">400-600</option>
+                                  <option value="600-700">600-700</option>
+                                  <option value="700-1300">700-1300</option>
+                                  <option value="1300 and above">1300 and above</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="col-12 col-12 mb-5">
+                              <button type="button" id="search" class="btn btn-search">Search</button>
+                              <button type="button" id="reset" class="btn btn-reset">Reset</button>
+                            </div>
+                        </div>
 
                         <table id="condo-table">
                           <thead>
-                              <tr>
-                                <th>Date of Sales</th>
-                                <th>Project Name</th>
-                                <th>Street Name</th>
-                                <th>Discrict</th>
-                                <th>Market Segment</th>
-                                <th>Tenure</th>
-                                <th>Type of Sale</th>
-                                <th>Floor Level</th>
-                                <th>Area (Sqft)</th>
-                                <th>Sale Price (S$)</th>
+                            <tr>
+                              <th>Date of Sales</th>
+                              <th>Project Name</th>
+                              <th>Street Name</th>
+                              <th>Discrict</th>
+                              <th>Market Segment</th>
+                              <th>Tenure</th>
+                              <th>Type of Sale</th>
+                              <th>Floor Level</th>
+                              <th>Area (Sqft)</th>
+                              <th>Sale Price (S$)</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -151,48 +189,84 @@
   <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script>
-      $(document).ready(function () {
-          $('.dataTables_filter label input').attr('placeholder', ' ⌕ search here');
-          $('.basic').select2();
+    $(document).ready(function() {
+      $('.dataTables_filter label input').attr('placeholder', ' ⌕ search here');
+      $('.basic').select2();
 
-          // Initial table load
-          load_data({});
-          
-          $('#search-field').on('keyup', function () {
-              reloadTable();
-          });
+      // Initial table load
+      load_data({});
 
-          function reloadTable() {
-              $('#condo-table').DataTable().destroy();
-              load_data({
-                  search: $('#search-field').val(),
-              });
-          }
-
-          function load_data(params = {}) {
-              $('#condo-table').DataTable({
-                  processing: true,
-                  serverSide: true,
-                  ajax: {
-                      url: '../util_project_data.php',
-                      data: params
-                  },
-                  columns: [
-                      { data: 'contractDate' },
-                      { data: 'project' },
-                      { data: 'street' },
-                      { data: 'district' },
-                      { data: 'marketSegment' },
-                      { data: 'tenure' },
-                      { data: 'typeOfSale' },
-                      { data: 'floorRange' },
-                      { data: 'area' },
-                      { data: 'price' }
-                  ],
-                  order: [[0, "desc"]]
-              });
-          }
+      $('#search-field').on('keyup', function() {
+        reloadTable();
       });
+
+      $('#search').on('click', function() {
+        reloadTable();
+      });
+
+      $('#reset').on('click', function() {
+        $('#area_sqft').val('');
+        $('#floor_range').val('');
+        $('#type_of_sales').val('');
+        $('#sales_dates').val('');
+      });
+      
+      function reloadTable() {
+        $('#condo-table').DataTable().destroy();
+        load_data({
+          search: $('#search-field').val(),
+          area_sqft: $('#area_sqft').val(),
+          floor_range: $('#floor_range').val(),
+          type_of_sale: $('#type_of_sales').val(),
+          sales_dates: $('#sales_dates').val(),
+        });
+      }
+
+      function load_data(params = {}) {
+        $('#condo-table').DataTable({
+          processing: true,
+          serverSide: true,
+          ajax: {
+            url: '../util_project_data.php',
+            data: params
+          },
+          columns: [{
+              data: 'contractDate'
+            },
+            {
+              data: 'project'
+            },
+            {
+              data: 'street'
+            },
+            {
+              data: 'district'
+            },
+            {
+              data: 'marketSegment'
+            },
+            {
+              data: 'tenure'
+            },
+            {
+              data: 'typeOfSale'
+            },
+            {
+              data: 'floorRange'
+            },
+            {
+              data: 'area'
+            },
+            {
+              data: 'price'
+            }
+          ],
+          order: [
+            [0, "desc"]
+          ]
+        });
+      }
+    });
   </script>
 </body>
 
