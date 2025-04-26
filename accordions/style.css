@@ -137,7 +137,6 @@ h1.heading-style-h1 {
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-
     section.global-padding {
         padding: 0 10px !important;
     }
