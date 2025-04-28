@@ -88,6 +88,7 @@ try {
         
     $formType = $_POST['form_type'] ?? null;
 
+    $project_id = $_POST['project_id'] ?? '';
     $project = $_POST['project'] ?? '';
     $block = $_POST['block'] ?? '';
     $floor = $_POST['floor'] ?? '';
@@ -108,12 +109,13 @@ try {
     }
     
     if ($formType === 'condo') {
-        header("Location: ./result/condo.php?lead_id=$leadId&unit=".urlencode($unit)."&full_address=".urlencode($fullAddress)."&project=".urlencode($project)."&block=".urlencode($block)."&floor=".urlencode($floor)."&unit_val=".urlencode($unitVal));
+        header("Location: ./result/condo.php?lead_id=$leadId&unit=".urlencode($unit)."&full_address=".urlencode($fullAddress)."&project=".urlencode($project)."&block=".urlencode($block)."&floor=".urlencode($floor)."&unit_val=".urlencode($unitVal)."&project_id=".urlencode($project_id));
     } elseif ($formType === 'hdb') {
         header("Location: ./result/hdb.php?lead_id=$leadId&unit=".urlencode($unit)."&full_address=".urlencode($fullAddress)."&town=".urlencode($town)."&block=".urlencode($block)."&flat_type=".urlencode($flatType)."&street=".urlencode($street)."&floor=".urlencode($floor)."&unit_val=".urlencode($unitVal));
     }
     exit();
 } catch (PDOException $e) {
+    $pdo->rollBack();
     header("Location: ./");
     exit();
 }

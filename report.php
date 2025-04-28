@@ -170,11 +170,8 @@ if (isset($form_type) && $form_type == 'hdb') {
 }
 
 if (isset($form_type) && $form_type === 'condo') {
-    $project_id = $response['lead_details'][1]['lead_form_value'] ?? null;
-    $project_id = 4607;
-    // var_dump($project_id);
-    // die;
-
+    $project_id = $response['lead_details'][0]['lead_form_value'] ?? null;
+    
     if ($project_id === null) {
         die("Error: Project ID is missing.");
     }

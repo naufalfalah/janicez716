@@ -38,7 +38,7 @@ $(document).ready(function () {
                 projectSelect.append('<option value="">Select project</option>');
 
                 data.forEach(item => {
-                    projectSelect.append(`<option value="${item.project}">${item.project}</option>`);
+                    projectSelect.append(`<option value="${item.project}" data-id="${item.id}">${item.project}</option>`);
                 });
             })
             .catch(error => console.error("Error loading project:", error));
@@ -156,7 +156,7 @@ $(document).ready(function () {
         const currentUrl = window.location.origin + window.location.pathname;
         window.location.href = `${currentUrl}?form=${selectForm}`;
     });
-    
+
     $('.button-next').on('click', function () {
         console.log('next'. form)
         submitted = true;
@@ -167,11 +167,13 @@ $(document).ready(function () {
         let url = "?form=contact";
         url += `&form_type=${encodeURIComponent(form)}`
         if (form === 'condo') {
+            const project_id = $('select[name="project"]').find(':selected').data('id');
             const project = $('select[name="project"]').val();
             const block = $('#condo-block').val();
             const sell = $('#condo-sell').val();
             const floor = $('#condo-floor').val();
             const unit = $('#condo-unit').val();
+            url += `&project_id=${encodeURIComponent(project_id)}`
             url += `&project=${encodeURIComponent(project)}`
             url += `&block=${encodeURIComponent(block)}`
             url += `&sell=${encodeURIComponent(sell)}`

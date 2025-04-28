@@ -2,9 +2,6 @@
 
 require_once('../report.php');
 
-$town = $response['lead_details'][0]['lead_form_value'];
-$flat_type = $response['lead_details'][2]['lead_form_value'];
-
 ?>
 
 <!DOCTYPE html>
@@ -72,18 +69,22 @@ $flat_type = $response['lead_details'][2]['lead_form_value'];
 
                         <div class="form-group-wrapper mt-5">
                           <div class="form-group">
+                            <label for="project">Project Name</label>
                             <input type="text" name="project" class="form-input" value="<?= $_GET['project'] ?? 'N/A'; ?>" disabled>
                           </div>
                           <div class="form-group">
+                            <label for="block">BLK</label>
                             <input type="text" name="block" class="form-input" value="<?= $_GET['block'] ?? 'N/A'; ?>" disabled>
                           </div>
                         </div>
 
                         <div class="form-group-wrapper">
                           <div class="form-group">
+                            <label for="floor">Floor</label>
                             <input type="text" name="floor" class="form-input" value="<?= $_GET['floor'] ?? 'N/A'; ?>" disabled>
                           </div>
                           <div class="form-group">
+                            <label for="unit">Unit</label>
                             <input type="text" name="unit" class="form-input" value="<?= $_GET['unit_val'] ?? 'N/A'; ?>" disabled>
                           </div>
                         </div>
@@ -189,12 +190,17 @@ $flat_type = $response['lead_details'][2]['lead_form_value'];
   <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script>
+    const params = new URLSearchParams(window.location.search);
+    const project_id = params.get('project_id') ?? 0;
+
     $(document).ready(function() {
       $('.dataTables_filter label input').attr('placeholder', ' ⌕ search here');
       $('.basic').select2();
 
       // Initial table load
-      load_data({});
+      load_data({
+        project_id
+      });
 
       $('#search-field').on('keyup', function() {
         reloadTable();
@@ -214,6 +220,7 @@ $flat_type = $response['lead_details'][2]['lead_form_value'];
       function reloadTable() {
         $('#condo-table').DataTable().destroy();
         load_data({
+          project_id,
           search: $('#search-field').val(),
           area_sqft: $('#area_sqft').val(),
           floor_range: $('#floor_range').val(),

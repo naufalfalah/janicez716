@@ -23,9 +23,9 @@ $query = "
 
 $params = [];
 
-if (!empty($_GET['project'])) {
+if (!empty($_GET['project_id'])) {
     $query .= " AND project_transactions.project_id = :project_id";
-    $params[':project_id'] = $_GET['project'];
+    $params[':project_id'] = $_GET['project_id'];
 }
 
 if (!empty($_GET['type_of_sale'])) {
@@ -106,7 +106,8 @@ $record = $stmt->fetch(PDO::FETCH_ASSOC);
 $totalRecords = $record['allcount'];
 $totalRecordwithFilter = $record['allcount'];
 
-$query .= " ORDER BY project_transactions.contractDate $columnSortOrder LIMIT :offset, :limit";
+$query .= " ORDER BY project_transactions.contractDate $columnSortOrder 
+    LIMIT :offset, :limit";
 
 $params[':offset'] = (int)$row;
 $params[':limit'] = (int)$rowperpage;
